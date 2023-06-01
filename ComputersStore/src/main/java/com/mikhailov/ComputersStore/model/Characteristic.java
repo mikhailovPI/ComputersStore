@@ -23,4 +23,11 @@ public class Characteristic {
 
     @Column(name = "name")
     String name;
+
+    @Column(name = "value_characteristic")
+    String valueChar;
+
+    @OneToOne
+    @JoinColumn (name = "unit_id")
+    Unit unit;
 }
