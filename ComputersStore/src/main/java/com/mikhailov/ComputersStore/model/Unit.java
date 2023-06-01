@@ -1,5 +1,6 @@
 package com.mikhailov.ComputersStore.model;
 
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,9 +11,15 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity
+@Table(name = "units", schema = "public")
 public class Unit {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "unit_id")
     Integer unitId;
 
+    @Column(name = "name")
     String name;
 }
