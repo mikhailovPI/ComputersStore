@@ -1,5 +1,6 @@
 package com.mikhailov.ComputersStore.model;
 
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +11,9 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Screen extends Product{
+public class Characteristic {
 
-    Integer diagonal;
+    Integer id;
+
+    String name;
 }

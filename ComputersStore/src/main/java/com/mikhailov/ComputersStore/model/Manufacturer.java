@@ -10,7 +10,9 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class HardDisk extends Product{
+public class Manufacturer {
 
-    Integer volume;
+    Long manufacturer;
+
+    String name;
 }

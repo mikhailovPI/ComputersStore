@@ -10,17 +10,9 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Product {
-
-    Long id;
-
-    String numberSerial;
-
-    Long manufacturer;
-
-    Integer price;
-
-    Integer quantity;
+public class Type {
 
     Integer typeId;
+
+    String name;
 }
