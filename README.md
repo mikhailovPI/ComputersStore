@@ -3,4 +3,4 @@
 Данные хранятся в БД. Схема БД представлена ниже.
 
 
->![db.png](info/db.png)
+>![db.png](ComputersStore/info/db.png)
