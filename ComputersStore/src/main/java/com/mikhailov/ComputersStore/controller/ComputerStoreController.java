@@ -17,7 +17,7 @@ import java.util.List;
 @Slf4j
 public class ComputerStoreController {
 
-    private ComputerStoreService computerStoreService;
+    private final ComputerStoreService computerStoreService;
 
     @GetMapping(path = "/all")
     public List<ProductDto> getProducts () {
@@ -25,16 +25,16 @@ public class ComputerStoreController {
     }
 
     @GetMapping(path = "/{id}")
-    public List<ProductDto> getProductById (@PathVariable Long id) {
+    public List<ProductAllDto> getProductById (@PathVariable Long id) {
         return computerStoreService.getProductById(id);
     }
 
-    @PostMapping(name = "/create")
+    @PostMapping(path = "/create")
     public ProductAllDto createProduct (@RequestBody ProductAllDto productAllDto) {
         return computerStoreService.createProduct(productAllDto);
     }
 
-    @PatchMapping(name = "/path")
+    @PatchMapping(path = "/path")
     public ProductAllDto updateProduct (@RequestBody ProductDto productDto) {
         return computerStoreService.updateProduct(productDto);
     }

@@ -10,7 +10,7 @@ import java.util.List;
 public interface ComputerStoreService {
     List<ProductDto> getProducts();
 
-    List<ProductDto> getProductById(Long id);
+    List<ProductAllDto> getProductById(Long id);
 
     ProductAllDto createProduct(ProductAllDto productAllDto);
 
