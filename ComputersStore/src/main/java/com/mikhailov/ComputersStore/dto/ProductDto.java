@@ -3,7 +3,6 @@ package com.mikhailov.ComputersStore.dto;
 import com.mikhailov.ComputersStore.model.Characteristic;
 import com.mikhailov.ComputersStore.model.Manufacturer;
 import com.mikhailov.ComputersStore.model.Type;
-import com.mikhailov.ComputersStore.model.Unit;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,5 +28,4 @@ public class ProductDto {
     Type  type;
 
     Characteristic characteristic;
-
 }

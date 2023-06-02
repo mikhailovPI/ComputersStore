@@ -1,14 +1,3 @@
-drop table if exists MANUFACTURERS cascade;
-
-drop table if exists TYPES_CHAR cascade;
-
-drop table if exists CHARACTERISTICS cascade;
-
-drop table if exists PRODUCTS cascade;
-
-drop table if exists TYPES cascade;
-
-drop table if exists UNITS cascade;
 
 CREATE TABLE IF NOT EXISTS types
 (
