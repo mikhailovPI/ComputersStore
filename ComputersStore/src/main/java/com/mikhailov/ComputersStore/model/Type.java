@@ -22,4 +22,8 @@ public class Type {
 
     @Column(name = "name")
     String name;
+
+    public Type(String name) {
+        this.name = name;
+    }
 }

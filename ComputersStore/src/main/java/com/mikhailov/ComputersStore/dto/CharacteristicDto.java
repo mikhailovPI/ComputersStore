@@ -1,5 +1,6 @@
 package com.mikhailov.ComputersStore.dto;
 
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,19 +11,11 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ProductDto {
+public class CharacteristicDto {
 
-    Long id;
+    String name;
 
-    String numberSerial;
+    String valueChar;
 
-    String manufacturer;
-
-    Integer price;
-
-    Integer quantity;
-
-    String type;
-
-    CharacteristicDto characteristic;
+    String unit;
 }

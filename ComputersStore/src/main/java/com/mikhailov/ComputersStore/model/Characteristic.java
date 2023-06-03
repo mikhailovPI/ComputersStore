@@ -30,4 +30,10 @@ public class Characteristic {
     @OneToOne
     @JoinColumn (name = "unit_id")
     Unit unit;
+
+    public Characteristic(String name, String valueChar, Unit unit) {
+        this.name = name;
+        this.valueChar = valueChar;
+        this.unit = unit;
+    }
 }

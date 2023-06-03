@@ -23,7 +23,7 @@ public class ComputerStoreController {
     }
 
     @GetMapping(path = "/{id}")
-    public List<ProductAllDto> getProductById (@PathVariable Long id) {
+    public ProductAllDto getProductById (@PathVariable Long id) {
         return computerStoreService.getProductById(id);
     }
 

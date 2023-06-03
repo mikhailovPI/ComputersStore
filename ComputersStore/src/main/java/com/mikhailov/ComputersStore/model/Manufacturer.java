@@ -22,4 +22,8 @@ public class Manufacturer {
 
     @Column(name = "name")
     String name;
+
+    public Manufacturer(String name) {
+        this.name = name;
+    }
 }

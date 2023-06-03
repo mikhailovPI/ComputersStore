@@ -19,14 +19,13 @@ public class ProductAllDto {
 
     String numberSerial;
 
-    Manufacturer manufacturer;
+    String manufacturer;
 
     Integer price;
 
     Integer quantity;
 
-    Type type;
+    String type;
 
-    Characteristic characteristic;
-
+    CharacteristicDto characteristic;
 }

@@ -1,8 +1,10 @@
 package com.mikhailov.ComputersStore.mapper;
 
+import com.mikhailov.ComputersStore.dto.CharacteristicDto;
 import com.mikhailov.ComputersStore.dto.ProductAllDto;
 import com.mikhailov.ComputersStore.dto.ProductDto;
 import com.mikhailov.ComputersStore.model.Characteristic;
+import com.mikhailov.ComputersStore.model.Manufacturer;
 import com.mikhailov.ComputersStore.model.Product;
 
 public class ComputerStoreMapper {
@@ -11,10 +13,9 @@ public class ComputerStoreMapper {
         return new Product(
                 productDto.getId(),
                 productDto.getNumberSerial(),
-                productDto.getManufacturer(),
+                new Manufacturer(),
                 productDto.getPrice(),
-                productDto.getQuantity(),
-                productDto.getType()
+                productDto.getQuantity()
         );
     }
 
@@ -22,11 +23,11 @@ public class ComputerStoreMapper {
         return new ProductDto(
                 product.getId(),
                 product.getNumberSerial(),
-                product.getManufacturer(),
+                product.getManufacturer().getName(),
                 product.getPrice(),
                 product.getQuantity(),
-                product.getType(),
-                new Characteristic()
+                null,
+                null
         );
     }
 
@@ -34,11 +35,11 @@ public class ComputerStoreMapper {
         return new ProductAllDto(
                 product.getId(),
                 product.getNumberSerial(),
-                product.getManufacturer(),
+                product.getManufacturer().getName(),
                 product.getPrice(),
                 product.getQuantity(),
-                product.getType(),
-                new Characteristic()
+                null,
+                null
         );
     }
 
@@ -46,13 +47,19 @@ public class ComputerStoreMapper {
         return new Product(
                 productAllDto.getId(),
                 productAllDto.getNumberSerial(),
-                productAllDto.getManufacturer(),
+                new Manufacturer(productAllDto.getManufacturer()),
                 productAllDto.getPrice(),
-                productAllDto.getQuantity(),
-                productAllDto.getType()
+                productAllDto.getQuantity()
         );
     }
 
+
+    public static CharacteristicDto toCharacteristicDtoFromCharacteristic (Characteristic characteristic) {
+        return new CharacteristicDto(
+                characteristic.getName(),
+                characteristic.getValueChar(),
+                characteristic.getUnit().getName());
+    }
 
 }
 
