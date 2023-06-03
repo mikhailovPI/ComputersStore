@@ -2,6 +2,7 @@ package com.mikhailov.ComputersStore.service;
 
 import com.mikhailov.ComputersStore.dto.ProductAllDto;
 import com.mikhailov.ComputersStore.dto.ProductDto;
+import com.mikhailov.ComputersStore.exception.NotFoundException;
 import com.mikhailov.ComputersStore.exception.UniqueException;
 import com.mikhailov.ComputersStore.mapper.ComputerStoreMapper;
 import com.mikhailov.ComputersStore.model.*;
@@ -35,7 +36,9 @@ public class ComputerStoreServiceImpl implements ComputerStoreService {
 
     @Override
     public ProductAllDto getProductById(Long id) {
-        return null;
+        return toProductAllDtoFromProduct(productRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException(
+                        String.format("Продукт с идентификационным номером %s не существует.", id))));
     }
 
     @Override

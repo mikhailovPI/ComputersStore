@@ -30,7 +30,10 @@ public class ComputerStoreMapper {
                 product.getPrice(),
                 product.getQuantity(),
                 product.getType().getName(),
-                new CharacteristicDto()
+                new CharacteristicDto(
+                        product.getCharacteristic().getName(),
+                        product.getCharacteristic().getValueChar(),
+                        product.getCharacteristic().getUnit().getName())
         );
     }
 
