@@ -32,8 +32,4 @@ public class Product {
 
     @Column(name = "quantity")
     Integer quantity;
-
-//    @OneToOne
-//    @JoinColumn(name = "type_id")
-//    Type type;
 }

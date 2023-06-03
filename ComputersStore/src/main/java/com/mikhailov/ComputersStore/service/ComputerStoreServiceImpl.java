@@ -41,23 +41,25 @@ public class ComputerStoreServiceImpl implements ComputerStoreService {
     @Override
     public ProductAllDto createProduct(ProductAllDto productAllDto) {
 
-        Characteristic characteristic = new Characteristic(
-                productAllDto.getCharacteristic().getName(),
-                productAllDto.getCharacteristic().getValueChar(),
-                new Unit(
-                        productAllDto.getCharacteristic().getUnit()));
-        if (characteristicRepository.findAll()
-                .stream()
-                .noneMatch(cr -> cr.getName().equals(characteristic.getName()))) {
-            characteristicRepository.save(characteristic);
-        }
-
         Unit unit = new Unit(
-                characteristic.getUnit().getName());
+                productAllDto.getCharacteristic().getUnit());
         if (unitRepository.findAll()
                 .stream()
                 .noneMatch(cr -> cr.getName().equals(unit.getName()))) {
             unitRepository.save(unit);
+        }
+
+        Characteristic characteristic = new Characteristic(
+                productAllDto.getCharacteristic().getName(),
+                productAllDto.getCharacteristic().getValueChar(),
+                new Unit(unit.getUnitId(),
+                        unit.getName()));
+        if (characteristicRepository.findAll()
+                .stream()
+                .noneMatch(cr -> cr.getName().equals(characteristic.getName()))) {
+            Unit unitSave = unitRepository.findByName(unit.getName());
+            characteristic.setUnit(unitSave);
+            characteristicRepository.save(characteristic);
         }
 
         Manufacturer manufacturer = new Manufacturer(
@@ -80,6 +82,7 @@ public class ComputerStoreServiceImpl implements ComputerStoreService {
         if (productRepository.findAll()
                 .stream()
                 .noneMatch(cr -> cr.getNumberSerial().equals(product.getNumberSerial()))) {
+            product.setManufacturer(manufacturer);
             productRepository.save(product);
         } else {
             throw new UniqueException(
