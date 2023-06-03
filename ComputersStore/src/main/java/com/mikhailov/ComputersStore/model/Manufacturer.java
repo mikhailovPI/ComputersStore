@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
-@Table(name = "Manufacturers", schema = "public")
+@Table(name = "manufacturers", schema = "public")
 public class Manufacturer {
 
     @Id

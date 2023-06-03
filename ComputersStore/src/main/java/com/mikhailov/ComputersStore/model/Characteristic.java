@@ -1,6 +1,5 @@
 package com.mikhailov.ComputersStore.model;
 
-
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

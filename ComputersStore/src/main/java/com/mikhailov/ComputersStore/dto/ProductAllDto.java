@@ -1,8 +1,5 @@
 package com.mikhailov.ComputersStore.dto;
 
-import com.mikhailov.ComputersStore.model.Characteristic;
-import com.mikhailov.ComputersStore.model.Manufacturer;
-import com.mikhailov.ComputersStore.model.Type;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;

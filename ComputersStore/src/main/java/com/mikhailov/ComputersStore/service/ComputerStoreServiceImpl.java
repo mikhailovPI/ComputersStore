@@ -81,6 +81,9 @@ public class ComputerStoreServiceImpl implements ComputerStoreService {
                 .stream()
                 .noneMatch(cr -> cr.getNumberSerial().equals(product.getNumberSerial()))) {
             productRepository.save(product);
+        } else {
+            throw new UniqueException(
+                    String.format("Серийный номер продукта %s - уже существует", product.getNumberSerial()));
         }
 
         ProductAllDto productAllDtoSave = toProductAllDtoFromProduct(product);
