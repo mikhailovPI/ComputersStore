@@ -3,21 +3,9 @@ package com.mikhailov.ComputersStore.mapper;
 import com.mikhailov.ComputersStore.dto.CharacteristicDto;
 import com.mikhailov.ComputersStore.dto.ProductAllDto;
 import com.mikhailov.ComputersStore.dto.ProductDto;
-import com.mikhailov.ComputersStore.model.Characteristic;
-import com.mikhailov.ComputersStore.model.Manufacturer;
-import com.mikhailov.ComputersStore.model.Product;
+import com.mikhailov.ComputersStore.model.*;
 
 public class ComputerStoreMapper {
-
-    public static Product toProductFromProductDto (ProductDto productDto) {
-        return new Product(
-                productDto.getId(),
-                productDto.getNumberSerial(),
-                new Manufacturer(),
-                productDto.getPrice(),
-                productDto.getQuantity()
-        );
-    }
 
     public static ProductDto toProductDtoFromProduct (Product product) {
         return new ProductDto(
@@ -26,8 +14,11 @@ public class ComputerStoreMapper {
                 product.getManufacturer().getName(),
                 product.getPrice(),
                 product.getQuantity(),
-                null,
-                null
+                product.getType().getName(),
+                new CharacteristicDto(
+                        product.getCharacteristic().getName(),
+                        product.getCharacteristic().getValueChar(),
+                        product.getCharacteristic().getUnit().getName())
         );
     }
 
@@ -38,8 +29,8 @@ public class ComputerStoreMapper {
                 product.getManufacturer().getName(),
                 product.getPrice(),
                 product.getQuantity(),
-                null,
-                null
+                product.getType().getName(),
+                new CharacteristicDto()
         );
     }
 
@@ -49,7 +40,12 @@ public class ComputerStoreMapper {
                 productAllDto.getNumberSerial(),
                 new Manufacturer(productAllDto.getManufacturer()),
                 productAllDto.getPrice(),
-                productAllDto.getQuantity()
+                productAllDto.getQuantity(),
+                new Type(productAllDto.getType()),
+                new Characteristic(
+                        productAllDto.getCharacteristic().getName(),
+                        productAllDto.getCharacteristic().getValueChar(),
+                        new Unit(productAllDto.getCharacteristic().getUnit()))
         );
     }
 

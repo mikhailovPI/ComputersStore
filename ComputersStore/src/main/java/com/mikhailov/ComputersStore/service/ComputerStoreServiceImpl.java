@@ -82,7 +82,14 @@ public class ComputerStoreServiceImpl implements ComputerStoreService {
         if (productRepository.findAll()
                 .stream()
                 .noneMatch(cr -> cr.getNumberSerial().equals(product.getNumberSerial()))) {
-            product.setManufacturer(manufacturer);
+
+            Manufacturer manufacturerSave = manufacturerRepository.findByName(manufacturer.getName());
+            Type typeSave = typeRepository.findByName(type.getName());
+            Characteristic characteristicSave = characteristicRepository.findByName(characteristic.getName());
+
+            product.setManufacturer(manufacturerSave);
+            product.setType(typeSave);
+            product.setCharacteristic(characteristicSave);
             productRepository.save(product);
         } else {
             throw new UniqueException(
