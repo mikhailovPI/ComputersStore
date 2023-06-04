@@ -13,8 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.mikhailov.ComputersStore.mapper.ComputerStoreMapper.toProductAllDtoFromProduct;
-import static com.mikhailov.ComputersStore.mapper.ComputerStoreMapper.toProductFromProductAllDto;
+import static com.mikhailov.ComputersStore.mapper.ComputerStoreMapper.*;
 
 @Service
 @RequiredArgsConstructor
@@ -37,6 +36,13 @@ public class ComputerStoreServiceImpl implements ComputerStoreService {
     @Override
     public ProductAllDto getProductById(Long id) {
         return toProductAllDtoFromProduct(findProductById(id));
+    }
+
+    @Override
+    public List<ProductDto> getProductsByType(String typeName) {
+        return productRepository.findByTypeName(typeName).stream()
+                .map(ComputerStoreMapper::toProductDtoFromProduct)
+                .collect(Collectors.toList());
     }
 
     @Override

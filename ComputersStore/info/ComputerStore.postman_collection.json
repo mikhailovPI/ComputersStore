@@ -16,7 +16,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -24,12 +24,13 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [
 								{
 									"key": "id",
-									"value": "50"
+									"value": null
 								}
 							]
 						}
@@ -150,11 +151,56 @@
 					"response": []
 				},
 				{
+					"name": "Создание товара 5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"AS-123\",\r\n  \"manufacturer\": \"ASER\",\r\n  \"price\": 39990.90,\r\n  \"quantity\": 250,\r\n  \"type\": \"ноутбук\",\r\n  \"characteristic\": {\r\n      \"name\": \"размер\",\r\n      \"valueChar\":\"17\",\r\n      \"unit\": \"дюйм\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/product/create"
+					},
+					"response": []
+				},
+				{
+					"name": "Получить все продукты одного типа",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/get/type?typeName=ноутбук",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"get",
+								"type"
+							],
+							"query": [
+								{
+									"key": "typeName",
+									"value": "ноутбук"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Получить все продукты",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8080/product/all"
+						"url": "http://localhost:8080/product/get/all"
 					},
 					"response": []
 				},
@@ -164,7 +210,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -172,6 +218,7 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [
@@ -226,7 +273,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -234,6 +281,7 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [
@@ -288,7 +336,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -296,6 +344,7 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [
@@ -350,7 +399,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -358,6 +407,7 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [
@@ -412,7 +462,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -420,6 +470,7 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [
@@ -474,7 +525,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -482,6 +533,7 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [
@@ -536,7 +588,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -544,6 +596,7 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [
@@ -598,7 +651,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -606,6 +659,7 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [
@@ -660,7 +714,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -668,6 +722,7 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [
@@ -686,7 +741,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -694,6 +749,7 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [
@@ -711,7 +767,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8080/product/all"
+						"url": "http://localhost:8080/product/get/all"
 					},
 					"response": []
 				},
@@ -757,7 +813,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -765,6 +821,7 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [
@@ -783,7 +840,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/product/:id",
+							"raw": "http://localhost:8080/product/get/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -791,6 +848,7 @@
 							"port": "8080",
 							"path": [
 								"product",
+								"get",
 								":id"
 							],
 							"variable": [

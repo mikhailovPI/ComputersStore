@@ -12,6 +12,8 @@ public interface ComputerStoreService {
 
     ProductAllDto getProductById(Long id);
 
+    List<ProductDto> getProductsByType(String typeName);
+
     ProductAllDto createProduct(ProductAllDto productAllDto);
 
     ProductAllDto updateProduct(Long id, ProductAllDto productAllDto);

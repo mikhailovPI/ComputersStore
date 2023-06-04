@@ -17,16 +17,22 @@ public class ComputerStoreController {
 
     private final ComputerStoreService computerStoreService;
 
-    @GetMapping(path = "/all")
+    @GetMapping(path = "/get/all")
     public List<ProductDto> getProducts () {
         log.info("GetMapping/Получение всех продуктов");
         return computerStoreService.getProducts();
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/get/{id}")
     public ProductAllDto getProductById (@PathVariable Long id) {
         log.info("GetMapping/Получение продукта: " + id);
         return computerStoreService.getProductById(id);
+    }
+
+    @GetMapping(path = "/get/type")
+    public List<ProductDto> getProductsByType (@RequestParam String typeName) {
+        log.info("GetMapping/Получение продуктов по типу: " + typeName);
+        return computerStoreService.getProductsByType(typeName);
     }
 
     @PostMapping(path = "/create")
