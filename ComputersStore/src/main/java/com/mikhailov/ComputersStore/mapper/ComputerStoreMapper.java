@@ -7,7 +7,7 @@ import com.mikhailov.ComputersStore.model.*;
 
 public class ComputerStoreMapper {
 
-    public static ProductDto toProductDtoFromProduct (Product product) {
+    public static ProductDto toProductDtoFromProduct(Product product) {
         return new ProductDto(
                 product.getId(),
                 product.getNumberSerial(),
@@ -22,7 +22,7 @@ public class ComputerStoreMapper {
         );
     }
 
-    public static ProductAllDto toProductAllDtoFromProduct (Product product) {
+    public static ProductAllDto toProductAllDtoFromProduct(Product product) {
         return new ProductAllDto(
                 product.getId(),
                 product.getNumberSerial(),
@@ -37,7 +37,7 @@ public class ComputerStoreMapper {
         );
     }
 
-    public static Product toProductFromProductAllDto (ProductAllDto productAllDto) {
+    public static Product toProductFromProductAllDto(ProductAllDto productAllDto) {
         return new Product(
                 productAllDto.getId(),
                 productAllDto.getNumberSerial(),
