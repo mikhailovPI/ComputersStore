@@ -30,7 +30,7 @@
 
 
 ***Схема базы данных:***
->![db.png](ComputersStore/info/db.PNG)
+>![db.png](ComputersStore/info/db.png)
 
 ***Данные для тестирования в Postman:***
 [tests](https://github.com/mikhailovPI/ComputersStore/blob/main/ComputersStore/info/ComputerStore.postman_collection.json)
