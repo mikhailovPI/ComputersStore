@@ -19,11 +19,13 @@ public class ComputerStoreController {
 
     @GetMapping(path = "/all")
     public List<ProductDto> getProducts () {
+        log.info("GetMapping/Получение всех продуктов");
         return computerStoreService.getProducts();
     }
 
     @GetMapping(path = "/{id}")
     public ProductAllDto getProductById (@PathVariable Long id) {
+        log.info("GetMapping/Получение продукта: " + id);
         return computerStoreService.getProductById(id);
     }
 
@@ -33,8 +35,11 @@ public class ComputerStoreController {
         return computerStoreService.createProduct(productAllDto);
     }
 
-    @PatchMapping(path = "/path")
-    public ProductAllDto updateProduct (@RequestBody ProductDto productDto) {
-        return computerStoreService.updateProduct(productDto);
+    @PatchMapping(path = "/update/{id}")
+    public ProductAllDto updateProduct (
+            @PathVariable Long id,
+            @RequestBody ProductAllDto productAllDto) {
+        log.info("PatchMapping/Обновление продукта: " + id);
+        return computerStoreService.updateProduct(id, productAllDto);
     }
 }

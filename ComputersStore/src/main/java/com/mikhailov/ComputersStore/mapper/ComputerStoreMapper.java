@@ -51,14 +51,5 @@ public class ComputerStoreMapper {
                         new Unit(productAllDto.getCharacteristic().getUnit()))
         );
     }
-
-
-    public static CharacteristicDto toCharacteristicDtoFromCharacteristic (Characteristic characteristic) {
-        return new CharacteristicDto(
-                characteristic.getName(),
-                characteristic.getValueChar(),
-                characteristic.getUnit().getName());
-    }
-
 }
 
