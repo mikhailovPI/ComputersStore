@@ -18,7 +18,7 @@ public class ProductDto {
 
     String manufacturer;
 
-    Integer price;
+    Double price;
 
     Integer quantity;
 

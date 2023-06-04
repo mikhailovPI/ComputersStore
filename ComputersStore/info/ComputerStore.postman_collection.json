@@ -1,0 +1,845 @@
+{
+	"info": {
+		"_postman_id": "311419a0-f1d7-4a9b-886f-77e8024aac2c",
+		"name": "ComputerStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21599406",
+		"_collection_link": "https://universal-rocket-498870.postman.co/workspace/Team-Workspace~075702bc-79a9-424e-8188-284e8c4fdb15/collection/21599406-311419a0-f1d7-4a9b-886f-77e8024aac2c?action=share&creator=21599406&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "exception",
+			"item": [
+				{
+					"name": "Получить продукт по fail id 50",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление продукта по fail id 50",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"CCC-103\",\r\n  \"manufacturer\": \"САМСУНГ\",\r\n  \"price\": 0,\r\n  \"quantity\": 10,\r\n  \"type\": \"hard диск\",\r\n  \"characteristic\": {\r\n      \"name\": \"value\",\r\n      \"valueChar\":\"1000\",\r\n      \"unit\": \"GB\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product/update/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD",
+			"item": [
+				{
+					"name": "Создание товара 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"FAS-123\",\r\n  \"manufacturer\": \"Lenovo\",\r\n  \"price\": 50000,\r\n  \"quantity\": 150,\r\n  \"type\": \"ноутбук\",\r\n  \"characteristic\": {\r\n      \"name\": \"размер\",\r\n      \"valueChar\":\"17\",\r\n      \"unit\": \"дюйм\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/product/create"
+					},
+					"response": []
+				},
+				{
+					"name": "Создание товара 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"AAA-123\",\r\n  \"manufacturer\": \"ASER\",\r\n  \"price\": 10000,\r\n  \"quantity\": 10,\r\n  \"type\": \"монитор\",\r\n  \"characteristic\": {\r\n      \"name\": \"диагональ\",\r\n      \"valueChar\":\"24\",\r\n      \"unit\":\"дюйм\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/product/create"
+					},
+					"response": []
+				},
+				{
+					"name": "Создание товара 3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"BBB-123\",\r\n  \"manufacturer\": \"HP\",\r\n  \"price\": 25000,\r\n  \"quantity\": 30,\r\n  \"type\": \"компьютер\",\r\n  \"characteristic\": {\r\n      \"name\": \"форм-фактор\",\r\n      \"valueChar\":\"моноблок\",\r\n      \"unit\": \"-\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/product/create"
+					},
+					"response": []
+				},
+				{
+					"name": "Создание товара 4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"CCC-123\",\r\n  \"manufacturer\": \"Samsung\",\r\n  \"price\": 3000,\r\n  \"quantity\": 30,\r\n  \"type\": \"жесткий диск\",\r\n  \"characteristic\": {\r\n      \"name\": \"объем\",\r\n      \"valueChar\":\"500\",\r\n      \"unit\": \"гб\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/product/create"
+					},
+					"response": []
+				},
+				{
+					"name": "Получить все продукты",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/product/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Получить продукт по id 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление продукта 1 (numberSerial)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"AAAA-123\",\r\n  \"manufacturer\": \"Lenovo\",\r\n  \"price\": 50000,\r\n  \"quantity\": 150,\r\n  \"type\": \"ноутбук\",\r\n  \"characteristic\": {\r\n      \"name\": \"размер\",\r\n      \"valueChar\":\"17\",\r\n      \"unit\": \"дюйм\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product/update/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить продукт по id 1 (после обновления numberSerial)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление продукта 1 (manufacturer)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"AAAA-123\",\r\n  \"manufacturer\": \"ЛЕНОВО\",\r\n  \"price\": 50000,\r\n  \"quantity\": 150,\r\n  \"type\": \"ноутбук\",\r\n  \"characteristic\": {\r\n      \"name\": \"размер\",\r\n      \"valueChar\":\"17\",\r\n      \"unit\": \"дюйм\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product/update/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить продукт по id 1 (после обновления manufacturer)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление продукта 1 (price)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"AAAA-123\",\r\n  \"manufacturer\": \"ЛЕНОВО\",\r\n  \"price\": 10,\r\n  \"quantity\": 150,\r\n  \"type\": \"ноутбук\",\r\n  \"characteristic\": {\r\n      \"name\": \"размер\",\r\n      \"valueChar\":\"17\",\r\n      \"unit\": \"дюйм\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product/update/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить продукт по id 1 (после обновления price)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление продукта 1 (quantity)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"AAAA-123\",\r\n  \"manufacturer\": \"ЛЕНОВО\",\r\n  \"price\": 10,\r\n  \"quantity\": 1,\r\n  \"type\": \"ноутбук\",\r\n  \"characteristic\": {\r\n      \"name\": \"размер\",\r\n      \"valueChar\":\"17\",\r\n      \"unit\": \"дюйм\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product/update/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить продукт по id 1 (после обновления quantity)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление продукта 1 (type)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"AAAA-123\",\r\n  \"manufacturer\": \"ЛЕНОВО\",\r\n  \"price\": 10,\r\n  \"quantity\": 1,\r\n  \"type\": \"laptop\",\r\n  \"characteristic\": {\r\n      \"name\": \"размер\",\r\n      \"valueChar\":\"17\",\r\n      \"unit\": \"дюйм\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product/update/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить продукт по id 1 (после обновления type)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление продукта 1 (characteristic_name)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"AAAA-123\",\r\n  \"manufacturer\": \"ЛЕНОВО\",\r\n  \"price\": 10,\r\n  \"quantity\": 1,\r\n  \"type\": \"laptop\",\r\n  \"characteristic\": {\r\n      \"name\": \"size\",\r\n      \"valueChar\":\"17\",\r\n      \"unit\": \"дюйм\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product/update/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить продукт по id 1 (после обновления characteristic_name)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление продукта 1 (characteristic_valueChar)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"AAAA-123\",\r\n  \"manufacturer\": \"ЛЕНОВО\",\r\n  \"price\": 10,\r\n  \"quantity\": 1,\r\n  \"type\": \"laptop\",\r\n  \"characteristic\": {\r\n      \"name\": \"size\",\r\n      \"valueChar\":\"20\",\r\n      \"unit\": \"дюйм\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product/update/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить продукт по id 1 (после обновления characteristic_valueChar)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление продукта 1 (all)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"AAAA-123\",\r\n  \"manufacturer\": \"ЛЕНОВО\",\r\n  \"price\": 10,\r\n  \"quantity\": 1,\r\n  \"type\": \"laptop\",\r\n  \"characteristic\": {\r\n      \"name\": \"size\",\r\n      \"valueChar\":\"20\",\r\n      \"unit\": \"inch\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product/update/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить продукт по id 1 (после обновления unit)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить продукт по id 2 (после обновления unit)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить все продукты",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/product/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление продукта 1 (all)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numberSerial\": \"FAS-123\",\r\n  \"manufacturer\": \"Lenovo\",\r\n  \"price\": 50000,\r\n  \"quantity\": 150,\r\n  \"type\": \"ноутбук\",\r\n  \"characteristic\": {\r\n      \"name\": \"размер\",\r\n      \"valueChar\":\"17\",\r\n      \"unit\": \"дюйм\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product/update/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить продукт по id 1 (после обновления all)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить продукт по id 2 (после обновления all)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление по id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product/delete/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление all",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/product/delete"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -28,7 +28,7 @@ public class Product {
     Manufacturer manufacturer;
 
     @Column(name = "price")
-    Integer price;
+    Double price;
 
     @Column(name = "quantity")
     Integer quantity;

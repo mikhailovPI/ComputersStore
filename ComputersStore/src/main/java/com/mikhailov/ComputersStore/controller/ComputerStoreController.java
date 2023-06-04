@@ -42,4 +42,17 @@ public class ComputerStoreController {
         log.info("PatchMapping/Обновление продукта: " + id);
         return computerStoreService.updateProduct(id, productAllDto);
     }
+
+    @DeleteMapping(path = "/delete/{id}")
+    public void deleteProductById (@PathVariable Long id) {
+        log.info("DeleteMapping/Удаление продукта: " + id);
+        computerStoreService.deleteProductById(id);
+    }
+
+    @DeleteMapping(path = "/delete")
+    public void deleteProducts() {
+        log.info("DeleteMapping/Удаление всех продуктов");
+        computerStoreService.deleteProducts();
+    }
 }
+

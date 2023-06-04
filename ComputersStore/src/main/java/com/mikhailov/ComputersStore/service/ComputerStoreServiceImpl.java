@@ -36,9 +36,7 @@ public class ComputerStoreServiceImpl implements ComputerStoreService {
 
     @Override
     public ProductAllDto getProductById(Long id) {
-        return toProductAllDtoFromProduct(productRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException(
-                        String.format("Продукт с идентификационным номером %s не существует.", id))));
+        return toProductAllDtoFromProduct(findProductById(id));
     }
 
     @Override
@@ -50,6 +48,32 @@ public class ComputerStoreServiceImpl implements ComputerStoreService {
         Type type = createType(productAllDto);
         Product product = createProduct(productAllDto, characteristic, manufacturer, type);
         return toProductAllDtoFromProduct(product);
+    }
+
+    @Override
+    @Transactional
+    public ProductAllDto updateProduct(Long id, ProductAllDto productAllDto) {
+        Product productUpdate = findProductById(id);
+
+        updateUnit(productAllDto, productUpdate);
+        updateCharacteristic(productAllDto, productUpdate);
+        updateManufacturer(productAllDto, productUpdate);
+        updateType(productAllDto, productUpdate);
+        updateProduct(productAllDto, productUpdate);
+
+        return toProductAllDtoFromProduct(productUpdate);
+    }
+
+    @Override
+    @Transactional
+    public void deleteProductById(Long id) {
+        productRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteProducts() {
+        productRepository.deleteAll();
     }
 
     private Product createProduct(
@@ -121,20 +145,6 @@ public class ComputerStoreServiceImpl implements ComputerStoreService {
         return unit;
     }
 
-    @Override
-    @Transactional
-    public ProductAllDto updateProduct(Long id, ProductAllDto productAllDto) {
-        Product productUpdate = validationProduct(id);
-
-        updateUnit(productAllDto, productUpdate);
-        updateCharacteristic(productAllDto, productUpdate);
-        updateManufacturer(productAllDto, productUpdate);
-        updateType(productAllDto, productUpdate);
-        updateProduct(productAllDto, productUpdate);
-
-        return toProductAllDtoFromProduct(productUpdate);
-    }
-
     private void updateProduct(ProductAllDto productAllDto, Product productUpdate) {
         if (!productUpdate.getNumberSerial().equals(productAllDto.getNumberSerial())) {
             productUpdate.setNumberSerial(productAllDto.getNumberSerial());
@@ -152,7 +162,7 @@ public class ComputerStoreServiceImpl implements ComputerStoreService {
 
     private void updateType(ProductAllDto productAllDto, Product productUpdate) {
         Long typeId = productUpdate.getType().getTypeId();
-        Type type = validationType(typeId);
+        Type type = findTypeById(typeId);
         if (!type.getName().equals(productAllDto.getType())) {
             type.setName(productAllDto.getType());
             typeRepository.save(type);
@@ -161,7 +171,7 @@ public class ComputerStoreServiceImpl implements ComputerStoreService {
 
     private void updateManufacturer(ProductAllDto productAllDto, Product productUpdate) {
         Long manId = productUpdate.getManufacturer().getManufacturerId();
-        Manufacturer manufacturer = validationManufacturer(manId);
+        Manufacturer manufacturer = findManufacturerById(manId);
         if (!manufacturer.getName().equals(productAllDto.getManufacturer())) {
             manufacturer.setName(productAllDto.getManufacturer());
             manufacturerRepository.save(manufacturer);
@@ -170,49 +180,53 @@ public class ComputerStoreServiceImpl implements ComputerStoreService {
 
     private void updateCharacteristic(ProductAllDto productAllDto, Product productUpdate) {
         Long charId = productUpdate.getCharacteristic().getId();
-        Characteristic characteristic = validationCharacteristic(charId);
+        Characteristic characteristic = findCharacteristicById(charId);
         if (!characteristic.getName().equals(productAllDto.getCharacteristic().getName())) {
             characteristic.setName(productAllDto.getCharacteristic().getName());
+            characteristicRepository.save(characteristic);
+        }
+        if (!characteristic.getValueChar().equals(productAllDto.getCharacteristic().getValueChar())) {
+            characteristic.setValueChar(productAllDto.getCharacteristic().getValueChar());
             characteristicRepository.save(characteristic);
         }
     }
 
     private void updateUnit(ProductAllDto productAllDto, Product productUpdate) {
         Long unitId = productUpdate.getCharacteristic().getUnit().getUnitId();
-        Unit unit = validationUnit(unitId);
+        Unit unit = findUnitById(unitId);
         if (!unit.getName().equals(productAllDto.getCharacteristic().getUnit())) {
             unit.setName(productAllDto.getCharacteristic().getUnit());
             unitRepository.save(unit);
         }
     }
 
-    private Type validationType(Long typeId) {
+    private Type findTypeById(Long typeId) {
         return typeRepository.findById(typeId)
                 .orElseThrow(() -> new NotFoundException(
                         String.format("Производителя %s не существует.", typeId)));
     }
 
-    private Manufacturer validationManufacturer(Long manId) {
+    private Manufacturer findManufacturerById(Long manId) {
         return manufacturerRepository.findById(manId)
                 .orElseThrow(() -> new NotFoundException(
                         String.format("Производителя %s не существует.", manId)));
     }
 
-    private Characteristic validationCharacteristic(Long charId) {
+    private Characteristic findCharacteristicById(Long charId) {
         return characteristicRepository.findById(charId)
                 .orElseThrow(() -> new NotFoundException(
                         String.format("Характеристики продукта %s не существует.", charId)));
     }
 
-    private Unit validationUnit(Long unitId) {
+    private Unit findUnitById(Long unitId) {
         return unitRepository.findById(unitId)
                 .orElseThrow(() -> new NotFoundException(
                         String.format("Единица измерения %s не существует.", unitId)));
     }
 
-    private Product validationProduct(Long prodId) {
+    private Product findProductById(Long prodId) {
         return productRepository.findById(prodId)
                 .orElseThrow(() -> new NotFoundException(
-                        String.format("Продукт %s не существует.", prodId)));
+                        String.format("Продукт с идентификационным номером %s не существует.", prodId)));
     }
 }

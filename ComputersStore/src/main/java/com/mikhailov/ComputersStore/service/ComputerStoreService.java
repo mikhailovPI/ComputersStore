@@ -15,4 +15,8 @@ public interface ComputerStoreService {
     ProductAllDto createProduct(ProductAllDto productAllDto);
 
     ProductAllDto updateProduct(Long id, ProductAllDto productAllDto);
+
+    void deleteProductById(Long id);
+
+    void deleteProducts();
 }

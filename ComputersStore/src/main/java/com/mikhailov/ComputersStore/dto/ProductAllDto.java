@@ -18,7 +18,7 @@ public class ProductAllDto {
 
     String manufacturer;
 
-    Integer price;
+    Double price;
 
     Integer quantity;
 
