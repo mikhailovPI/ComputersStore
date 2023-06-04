@@ -42,5 +42,5 @@ build/
 ### VS Code ###
 .vscode/
 
-ComputersStore/ComputersStore/db
+/db
 /.idea
