@@ -16,7 +16,9 @@
 - Склонировать репозиторий на ПК в необходимю папку;
 - Созданить БД со следующими свойствами 
 (user, password см. в [application.properties](https://github.com/mikhailovPI/ComputersStore/blob/main/ComputersStore/src/main/resources/application.properties)): 
->![db_properties.png](ComputersStore/info/db_properties.png)
+
+>![properties.png](ComputersStore/info/properties.png)
+
 - Проверить в [application.properties](https://github.com/mikhailovPI/ComputersStore/blob/main/ComputersStore/src/main/resources/application.properties) 
 способ записи данных (jdbc:h2:mem / jdbc:h2:./db);
 - При хранении данных в БД Н2 запустить файл schema.sql
