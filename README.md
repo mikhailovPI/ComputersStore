@@ -15,9 +15,9 @@
 <u>***Для запуска приложения необходимо:***</u>
 - Склонировать репозиторий на ПК в необходимю папку;
 - Созданить БД со следующими свойствами 
-(user, password см. в [application.properties](https://github.com/mikhailovPI/ComputersStore/blob/main/ComputersStore/src/main/resources/application.properties)): 
+(user, password см. в [application.properties](https://github.com/mikhailovPI/ComputersStore/blob/main/ComputersStore/src/main/resources/application.properties)):
 
->![properties.png](ComputersStore/info/properties.png)
+>![properties.png](ComputersStore/info/properties.PNG)
 
 - Проверить в [application.properties](https://github.com/mikhailovPI/ComputersStore/blob/main/ComputersStore/src/main/resources/application.properties) 
 способ записи данных (jdbc:h2:mem / jdbc:h2:./db);
@@ -30,7 +30,7 @@
 
 
 ***Схема базы данных:***
->![db.png](ComputersStore/info/db.png)
+>![db.png](ComputersStore/info/db.PNG)
 
 ***Данные для тестирования в Postman:***
 [tests](https://github.com/mikhailovPI/ComputersStore/blob/main/ComputersStore/info/ComputerStore.postman_collection.json)
