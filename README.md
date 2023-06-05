@@ -21,8 +21,7 @@
 
 - Проверить в [application.properties](https://github.com/mikhailovPI/ComputersStore/blob/main/ComputersStore/src/main/resources/application.properties) 
 способ записи данных (jdbc:h2:mem / jdbc:h2:./db);
-- При хранении данных в БД запустить файл schema.sql
-  [schema.sql](https://github.com/mikhailovPI/ComputersStore/blob/main/ComputersStore/src/main/resources/schema.sql);
+- При хранении данных в БД запустить файл [schema.sql](https://github.com/mikhailovPI/ComputersStore/blob/main/ComputersStore/src/main/resources/schema.sql);
 - Произвести запуск приложения (class ComputersStoreApplication);
 - Запустить Postman на [localhost:8080](http://localhost:8080);
 - Запустить коллекцию [тестов](https://github.com/mikhailovPI/ComputersStore/blob/main/ComputersStore/info/ComputerStore.postman_collection.json) в Postman;
